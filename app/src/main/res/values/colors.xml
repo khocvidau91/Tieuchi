@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mic_inactive">#334155</color>
+    <color name="mic_active">#dc2626</color>
+    <color name="text_hint_color">#94A3B8</color>
+</resources>

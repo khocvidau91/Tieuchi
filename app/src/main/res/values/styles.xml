@@ -1,0 +1,19 @@
+<resources>
+    <style name="CircleShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="DotStyle">
+    <item name="android:layout_width">16dp</item>
+    <item name="android:layout_height">16dp</item>
+    <item name="android:layout_margin">8dp</item>
+    <item name="android:background">@drawable/circle_dot</item>
+    <item name="android:alpha">0.3</item>
+</style>
+    <style name="DotStyleFuturistic">
+    <item name="android:layout_width">10dp</item>
+    <item name="android:layout_height">10dp</item>
+    <item name="android:layout_marginEnd">8dp</item>
+    <item name="android:background">@drawable/dot_futuristic</item>
+</style>
+</resources>

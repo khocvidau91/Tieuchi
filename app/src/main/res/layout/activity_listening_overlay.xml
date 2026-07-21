@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Nền mờ phía sau với hiệu ứng blur (nếu có) -->
+    <View
+        android:id="@+id/dim_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom Sheet chính - thiết kế glassmorphism + viền gradient -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_bottom_sheet_futuristic"
+        android:elevation="16dp"
+        android:paddingBottom="24dp">
+
+        <!-- Thanh kéo (drag handle) kiểu futuristic -->
+        <View
+            android:id="@+id/drag_handle"
+            android:layout_width="48dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/drag_handle_futuristic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 5 chấm trắng (chế độ Assistant) - giữ nguyên ID -->
+        <LinearLayout
+            android:id="@+id/dots_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View android:id="@+id/dot1" style="@style/DotStyleFuturistic" />
+            <View android:id="@+id/dot2" style="@style/DotStyleFuturistic" />
+            <View android:id="@+id/dot3" style="@style/DotStyleFuturistic" />
+            <View android:id="@+id/dot4" style="@style/DotStyleFuturistic" />
+            <View android:id="@+id/dot5" style="@style/DotStyleFuturistic" />
+        </LinearLayout>
+
+        <!-- Vòng tròn sóng âm thanh (chế độ Listening) - thiết kế 3D pulse -->
+        <FrameLayout
+            android:id="@+id/voice_wave_container"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drag_handle">
+
+            <!-- Vòng tròn ngoài cùng pulse -->
+            <View
+                android:id="@+id/voice_wave_outer"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/circle_pulse_outer" />
+
+            <!-- Vòng tròn giữa -->
+            <View
+                android:id="@+id/voice_wave_mid"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_pulse_mid" />
+
+            <!-- Icon micro ở giữa -->
+            <ImageView
+                android:id="@+id/voice_wave_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_mic_white"
+                android:tint="#FFFFFF" />
+        </FrameLayout>
+
+        <!-- TextView trạng thái voice (thay thế voice_indicator cũ) -->
+        <TextView
+            android:id="@+id/voice_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Đang nghe..."
+            android:textColor="#E0E0E0"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/voice_wave_container" />
+
+        <!-- Micro và Keyboard buttons (chế độ Listening) - thiết kế nổi bật -->
+        <ImageButton
+            android:id="@+id/mic_button"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle_button_glow"
+            android:src="@drawable/ic_mic_white"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drag_handle" />
+
+        <ImageButton
+            android:id="@+id/keyboard_button"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/circle_button_glow"
+            android:src="@drawable/ic_keyboard_white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mic_button" />
+
+        <!-- Ô nhập văn bản (dùng chung) - thiết kế glassmorphism -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/input_bg_glass"
+            android:hint="Nhập tin nhắn..."
+            android:imeOptions="actionSend"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:padding="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#B0B0B0"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/send_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dots_container" />
+
+        <!-- Nút gửi (chế độ Listening) -->
+        <ImageButton
+            android:id="@+id/send_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/circle_button_send"
+            android:src="@drawable/ic_send_arrow"
+            android:tint="#FFFFFF"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/input_edit_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/input_edit_text" />
+
+        <!-- Nút mở rộng (expand indicator) - thanh trượt -->
+        <View
+            android:id="@+id/expand_indicator"
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/expand_indicator_glass"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_edit_text" />
+
+        <!-- Vùng mở rộng chứa chat (RecyclerView) - nền mờ, bo góc -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/expandable_area"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/expand_indicator">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:padding="16dp"
+                android:clipToPadding="false" />
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

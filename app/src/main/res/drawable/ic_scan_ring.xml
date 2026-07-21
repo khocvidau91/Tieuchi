@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="320dp"
+    android:viewportWidth="320"
+    android:viewportHeight="320">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M160,160m-140,0a140,140 0,1 1,280 0a140,140 0,1 1,-280 0"
+        android:strokeColor="#00FF7F"
+        android:strokeWidth="2.5"
+        android:strokeAlpha="0.6" />
+    <!-- Các vòng cung nhỏ để tạo hiệu ứng quét -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M160,20A140,140 0,0 1,300 160"
+        android:strokeColor="#00FF7F"
+        android:strokeWidth="4"
+        android:strokeAlpha="0.9" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M300,160A140,140 0,0 1,160 300"
+        android:strokeColor="#00FF7F"
+        android:strokeWidth="4"
+        android:strokeAlpha="0.9" />
+</vector>

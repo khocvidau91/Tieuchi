@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_ota_url" android:title="Cài đặt OTA URL" />
+    <item android:id="@+id/menu_wss_url" android:title="Cài đặt WebSocket URL" />
+    <item android:id="@+id/menu_music_ws_url" android:title="Cài đặt Music Server" />
+    <item android:id="@+id/menu_toggle_auto_mic" android:title="Bật/tắt mic tự động" android:checkable="true" />
+    <item android:id="@+id/menu_toggle_mcp" android:title="Bật/tắt MCP" android:checkable="true" />
+    <item android:id="@+id/menu_about" android:title="Thông tin ứng dụng" />
+</menu>
