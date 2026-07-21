@@ -477,7 +477,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) file for 
 
 ## 👨‍💻 Author
 
-**Thanh Đặng Lê Phước Bình**
+**Dương Văn Thành**
 - GitHub: [@Thanhdlpb](https://github.com/Thanhdlpb)
 - Email: thanhdlpb@gmail.com
 
